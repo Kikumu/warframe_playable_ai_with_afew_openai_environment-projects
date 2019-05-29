@@ -28,11 +28,27 @@ def see_environment():
             #env.render()
             action = env.action_space.sample()
             observation, reward, done, info = env.step(action)
-            print('action', action)
+            #print('action', action)
+
             if done:
                 break
 
 see_environment()
+
+
+def __init__(self):
+    self.max_theta = np.pi / 8  # rad
+    self.max_thetadot = 0.5  # rad/sec
+    self.max_torque = 300  # N-m
+    self.dt = 0.01
+    self.viewer = None
+
+    bounds = np.array([self.max_theta, self.max_thetadot])
+
+    self.action_space = spaces.Box(low=-self.max_torque, high=self.max_torque, shape=(1,), dtype=np.float32)
+
+    self.observation_space = spaces.Box(low=-bounds, high=bounds, dtype=np.float32)
+    self.seed()
 
 # def initial_data():
 #     #some_games_first()
