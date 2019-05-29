@@ -1,4 +1,5 @@
 import gym
+import math
 import random
 import numpy as np
 import tflearn
@@ -15,7 +16,11 @@ env.reset()
 
 goal_steps = 1000
 
-score_requirement = 60
+# required_angle_range = range(np.pi/9, np.pi/8)
+
+data1 = float(np.pi/8)
+data2 = float(np.pi/9)
+
 
 initial_games = 10000
 
@@ -58,24 +63,28 @@ def initial_data():
     accepted_scores = []
     # only store data if score is above 50
     # actual game
-    for _ in range(initial_games):
+    for _ in range(100):
         env.reset()
-        score = 0
+        angle = 0
         game_memory = []  # store movements
         previous_observation = []
         for _ in range(goal_steps):
             action = env.action_space.sample()  # review this
             observation, reward, done, info = env.step(action)
-            # print('action', action)
+            if action[0] in range(float(data1), float(data2)):
+                print('action', action)
+            # print('type', type(action[0]))
+            # print('action', action[0])
             if len(previous_observation) > 0:
                 game_memory.append([previous_observation, action])
                 # print('game_memory', game_memory)
             previous_observation = observation
-            score += reward
+            angle += observation
             if done:
                 break
           #when we are looking to analyse game in this case, we want it to remain within a constraint of a certain angle
-        # if score >= score_requirement:
+        # if action[0] in range(data1, data2):
+        #     print('action', action)
         #     accepted_scores.append(score)
         #     for data in game_memory:
         #         print('data', data)
@@ -88,13 +97,13 @@ def initial_data():
         #         env.reset()
         #         scores.append(score)
 
-    training_data_save = np.array(training_data)
-    np.save('saved.npy', training_data_save)
-
-    print('Average accepted score:', mean(accepted_scores))
-    print('Median score for accepted scores:', median(accepted_scores))
-    print(Counter(accepted_scores))
-
-    return training_data
+    # training_data_save = np.array(training_data)
+    # np.save('saved.npy', training_data_save)
+    #
+    # print('Average accepted score:', mean(accepted_scores))
+    # print('Median score for accepted scores:', median(accepted_scores))
+    # print(Counter(accepted_scores))
+    #
+    # return training_data
 
 initial_data()
