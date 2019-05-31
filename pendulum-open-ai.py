@@ -14,7 +14,7 @@ env = gym.make('Pendulum-v0')
 
 env.reset()
 
-goal_steps = 1000
+goal_steps = 100
 
 # required_angle_range = range(np.pi/9, np.pi/8)
 
@@ -41,69 +41,78 @@ initial_games = 10000
 # see_environment()
 
 
-# def __init__(self):
-#     self.max_theta = np.pi / 8  # rad
-#     self.max_thetadot = 0.5  # rad/sec
-#     self.max_torque = 300  # N-m
-#     self.dt = 0.01
-#     self.viewer = None
-#
-#     bounds = np.array([self.max_theta, self.max_thetadot])
-#
-#     self.action_space = spaces.Box(low=-self.max_torque, high=self.max_torque, shape=(1,), dtype=np.float32)
-#
-#     self.observation_space = spaces.Box(low=-bounds, high=bounds, dtype=np.float32)
-
-
-
 def initial_data():
     #some_games_first()
     training_data = []
     scores = []
     accepted_scores = []
-    # only store data if score is above 50
-    # actual game
-    for _ in range(100):
+    discount_rate  = 0 #for non episodic tasks
+    #what are my policies?
+    policy_angle = np.pi/8
+    #observation is the state? yes
+    #but, observation has 3 values,cos theta, sin theta and theta dot
+    #action is effort applied on the stick
+    #zero deals with y axis and 1 deals with x axis
+    score = 0 #episodic task
+    for _ in range(1000):
         env.reset()
-        angle = 0
         game_memory = []  # store movements
         previous_observation = []
         for _ in range(goal_steps):
-            action = env.action_space.sample()  # review this
-            observation, reward, done, info = env.step(action)
-            if action[0] in range(float(data1), float(data2)):
-                print('action', action)
-            # print('type', type(action[0]))
-            # print('action', action[0])
-            if len(previous_observation) > 0:
-                game_memory.append([previous_observation, action])
-                # print('game_memory', game_memory)
-            previous_observation = observation
-            angle += observation
+            force_applied = env.action_space.sample()  # review this
+            # print('action', env.action_space.sample())
+            observation, reward, done, info = env.step(force_applied)
+            # print('observation', observation)
+
+            #analysing game
+            if (observation[0]) > ((np.pi/180)*50):
+                # env.render()
+                force_applied = env.action_space.sample()
+                training_data.append([observation, force_applied])
+                # print(training_data)
+            score += reward #return value for episodic task
+            # print('score', score)
             if done:
                 break
-          #when we are looking to analyse game in this case, we want it to remain within a constraint of a certain angle
-        # if action[0] in range(data1, data2):
-        #     print('action', action)
-        #     accepted_scores.append(score)
-        #     for data in game_memory:
-        #         print('data', data)
-        #         if data[1] == 1:
-        #             output = [0, 1]
-        #         elif data[1] == 0:
-        #             output = [1, 0]
-        #
-        #         training_data.append([data[0], output])
-        #         env.reset()
-        #         scores.append(score)
 
-    # training_data_save = np.array(training_data)
-    # np.save('saved.npy', training_data_save)
-    #
-    # print('Average accepted score:', mean(accepted_scores))
-    # print('Median score for accepted scores:', median(accepted_scores))
-    # print(Counter(accepted_scores))
-    #
-    # return training_data
 
 initial_data()
+
+def neural_network_model(input_size):
+
+    network = input_data(shape=[None, input_size, 1], name='input')
+
+    network = fully_connected(network, 128, activation='relu')
+    network = dropout(network, 0.8)
+
+    network = fully_connected(network, 256, activation='relu')
+    network = dropout(network, 0.8)
+
+    network = fully_connected(network, 512, activation='relu')
+    network = dropout(network, 0.8)
+
+    network = fully_connected(network, 256, activation='relu')
+    network = dropout(network, 0.8)
+
+    network = fully_connected(network, 128, activation='relu')
+    network = dropout(network, 0.8)
+
+    network = fully_connected(network, 2, activation='softmax')
+    network = regression(network, optimizer='adam', learning_rate=LR, loss='categorical_crossentropy', name='targets')
+    model = tflearn.DNN(network, tensorboard_dir='log')
+
+    return model
+
+def train_model(training_data, model=False):
+    X = np.array([i[0] for i in training_data]).reshape(-2, len(training_data[0][0]), 2)
+    y = [i[1] for i in training_data]
+
+    if not model:
+        model = neural_network_model(input_size=len(X[0]))
+
+    model.fit({'input': X}, {'targets': y}, n_epoch=5, snapshot_step=500, show_metric=True, run_id='openai_learning')
+    return model
+
+
+training_data = initial_data()
+model = train_model(training_data)

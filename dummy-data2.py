@@ -27,8 +27,9 @@ def process_img(image):
 
 
 subtractor = cv2.createBackgroundSubtractorMOG2(history=10, varThreshold=25, detectShadows=True)
-template = cv2.imread('C:\\Users\\scowt\\Desktop\\grunts_warframe\\corpus_grunt3_back.png', 0)
+template = cv2.imread('C:/Users/scowt/Desktop/delete me/grineer6.png', 0)
 w, h = template.shape[::-1]
+cv2.imshow('temp', template)
 
 last_time = time.time()
 while(True):

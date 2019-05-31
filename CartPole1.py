@@ -46,7 +46,7 @@ def initial_data():
         for _ in range(goal_steps):
             action = random.randrange(0, 2)  # review this
             observation, reward, done, info = env.step(action)
-             #print('reward', reward)
+            print('reward', action)
             if len(previous_observation) > 0:
                 game_memory.append([previous_observation, action])
                  #print('game_memory', game_memory)
