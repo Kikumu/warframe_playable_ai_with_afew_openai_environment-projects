@@ -1,0 +1,22 @@
+filename,width,height,class,xmin,ymin,xmax,ymax
+butcher_grineer.png,800,600,grineer_butcher,140,42,709,594
+butcher_grineer1.png,800,600,grineer_butcher,77,7,745,569
+butchgrineer 3.png,800,600,grineer_butcher,36,9,754,592
+corpus_grunt1.png,800,600,corpus,103,5,710,583
+corpus_grunt1_back.png,800,600,corpus,30,7,741,584
+corpus_grunt1_side.png,800,600,corpus,4,11,781,542
+corpus_grunt2.png,800,600,corpus,41,9,736,595
+corpus_grunt2_back.png,800,600,corpus,113,14,771,572
+corpus_grunt2_side.png,800,600,corpus,9,11,798,583
+crp.png,800,600,railgun_moa,77,9,709,572
+crp2.png,800,600,railgun_moa,111,6,755,600
+f.png,800,600,corpus,9,7,775,596
+g.png,800,600,corpus,14,9,779,596
+grineer1.png,800,600,grineer,64,9,781,592
+grineer2.png,800,600,grineer,45,15,518,600
+grineer3.png,800,600,grineer,4,2,792,600
+grineer4.png,800,600,grineer,53,7,718,600
+grineer5.png,800,600,grineer,65,13,740,590
+grineer6.png,800,600,grineer,53,21,767,600
+inf.png,800,600,infested,92,6,773,600
+inf1.png,800,600,infested,75,19,780,595

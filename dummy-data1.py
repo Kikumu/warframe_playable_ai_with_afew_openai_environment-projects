@@ -20,8 +20,6 @@ for category in CATEGORIES:
     path = os.path.join(DATADIR, category) #path to cats/dogos dir
     for img in os.listdir(path): #itr thru imgs
         img_array = cv2.imread(os.path.join(path, img), cv2.IMREAD_GRAYSCALE)#convert img to grayscale. first converted to array then to grayscale. rgb is 3 times bigger than grayscale
-        # plt.imshow(img_array, cmap="gray")
-        # plt.show()
         break
         break
 
@@ -108,22 +106,13 @@ model.add(Dense(69))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
 
-# binary cause 2 things (cats and dogs)
-# model.compile(loss="sigmoid_cross_entropy",
-#               optimizer="adam",
-#               metrics=['accuracy'])
+#binary cause 2 things (cats and dogs)
+model.compile(loss="binary_crossentropy",
+              optimizer="adam",
+              metrics=['accuracy'])
 
-tf.losses.sigmoid_cross_entropy(
-    [32, 2],
-    [32, 2],
-    weights=1.0,
-    label_smoothing=0,
-    scope=None,
-    loss_collection=tf.GraphKeys.LOSSES,
-    reduction=SUM_BY_NONZERO_WEIGHTS
-)
-
-
-model.fit(X, y, batch_size=32, epochs=10, validation_split=0.1,
-          callbacks=[tensorboard])  # how many at a time do you wanna pass through each data depends on data size
+model.fit(X, y, batch_size=32, epochs=10, validation_split=0.1,callbacks=[tensorboard]) # how many at a time do you wanna pass through each data depends on data size
 model.save('64x83-WFG.model')
+# tensorboard --logdir=foo:C:/Users/scowt/PycharmProjects/untitled1/logs
+graph_def = graph_pb2.GraphDef()
+
