@@ -1,2 +1,0 @@
-#protobuffing model
-#rescalor
