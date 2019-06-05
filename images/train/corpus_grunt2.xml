@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Train</folder>
-	<filename>corpus_grunt2.png</filename>
-	<path>C:\Users\scowt\Desktop\grunts_warframe\Train\corpus_grunt2.png</path>
+	<folder>train</folder>
+	<filename>corpus_grunt2.jpg</filename>
+	<path>C:\Users\scowt\Downloads\models\research\object_detection\images\train\corpus_grunt2.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -14,13 +14,13 @@
 	<object>
 		<name>corpus</name>
 		<pose>Unspecified</pose>
-		<truncated>0</truncated>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>41</xmin>
-			<ymin>9</ymin>
-			<xmax>736</xmax>
-			<ymax>595</ymax>
+			<xmin>44</xmin>
+			<ymin>11</ymin>
+			<xmax>656</xmax>
+			<ymax>600</ymax>
 		</bndbox>
 	</object>
 </annotation>

@@ -22,9 +22,9 @@ from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
 
 flags = tf.app.flags
-flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
-flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
-flags.DEFINE_string('image_dir', '', 'Path to images')
+flags.DEFINE_string('csv_input', 'C:\\Users\\scowt\\Anaconda3\\envs\\tutorial\\models\\research\\object_detection\\images\\train_labels.csv', 'Path to the CSV input')
+flags.DEFINE_string('output_path', 'C:\\Users\\scowt\\Anaconda3\\envs\\tutorial\\models\\research\\object_detection\\images\\train.record', 'Path to output TFRecord')
+flags.DEFINE_string('image_dir' , 'C:\\Users\\scowt\\Anaconda3\\envs\\tutorial\\models\\research\\object_detection\\images\\train', 'Path to images')
 FLAGS = flags.FLAGS
 
 
@@ -34,12 +34,10 @@ def class_text_to_int(row_label):
         return 1
     elif row_label == 'grineer':
         return 2
-    elif row_label == 'infested':
+    elif row_label == 'railgun_corpus':
         return 3
     elif row_label == 'grineer_butcher':
         return 4
-    elif row_label == 'railgun_moa':
-        return 5
     else:
         None
 

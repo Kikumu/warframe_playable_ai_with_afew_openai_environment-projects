@@ -1,0 +1,19 @@
+item{
+    id: 1
+    name: 'corpus'
+}
+
+item{
+    id: 2
+    name: 'grineer'
+}
+
+item{
+    id: 3
+    name: 'railgun_corpus'
+}
+
+item{
+    id: 4
+    name: 'grineer_butcher'
+}

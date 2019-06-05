@@ -1,4 +1,3 @@
 filename,width,height,class,xmin,ymin,xmax,ymax
-g.png,800,600,corpus,34,14,768,600
-grineer1.png,800,600,grineer,64,11,775,596
-grineer2.png,800,600,grineer,27,23,618,600
+corpus_grunt1.jpg,800,600,corpus,110,52,687,573
+corpus_grunt3_back.jpg,800,600,corpus,133,3,796,579

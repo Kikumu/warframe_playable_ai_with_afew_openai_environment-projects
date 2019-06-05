@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Train</folder>
-	<filename>crp2.png</filename>
-	<path>C:\Users\scowt\Desktop\grunts_warframe\Train\crp2.png</path>
+	<folder>train</folder>
+	<filename>crp2.jpg</filename>
+	<path>C:\Users\scowt\Downloads\models\research\object_detection\images\train\crp2.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,15 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>railgun_moa</name>
+		<name>railgun_corpus</name>
 		<pose>Unspecified</pose>
-		<truncated>1</truncated>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>111</xmin>
-			<ymin>6</ymin>
-			<xmax>755</xmax>
-			<ymax>600</ymax>
+			<xmin>83</xmin>
+			<ymin>29</ymin>
+			<xmax>744</xmax>
+			<ymax>592</ymax>
 		</bndbox>
 	</object>
 </annotation>

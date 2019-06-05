@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>corpus_grunt3_back.jpg</filename>
+	<path>C:\Users\scowt\Downloads\models\research\object_detection\images\train\corpus_grunt3_back.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>600</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>corpus</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>96</xmin>
+			<ymin>1</ymin>
+			<xmax>797</xmax>
+			<ymax>600</ymax>
+		</bndbox>
+	</object>
+</annotation>

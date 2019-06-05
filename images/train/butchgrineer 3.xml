@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Train</folder>
-	<filename>butchgrineer 3.png</filename>
-	<path>C:\Users\scowt\Desktop\grunts_warframe\Train\butchgrineer 3.png</path>
+	<folder>train</folder>
+	<filename>butchgrineer 3.jpg</filename>
+	<path>C:\Users\scowt\Downloads\models\research\object_detection\images\train\butchgrineer 3.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>36</xmin>
-			<ymin>9</ymin>
-			<xmax>754</xmax>
-			<ymax>592</ymax>
+			<xmin>26</xmin>
+			<ymin>10</ymin>
+			<xmax>750</xmax>
+			<ymax>583</ymax>
 		</bndbox>
 	</object>
 </annotation>
