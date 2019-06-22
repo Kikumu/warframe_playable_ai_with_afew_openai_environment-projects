@@ -7,7 +7,7 @@ Usage:
   python generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=test.record
 """
 
-# credits: https://gilberttanner.com/2019/02/02/tensorflow-object-detection-tutorial-3-creating-your-own-object-detector/
+# credits: https:https://www.machinelearninguru.com/deep_learning/tensorflow/basics/tfrecord/tfrecord.html
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
