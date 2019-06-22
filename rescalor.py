@@ -1,4 +1,4 @@
-#credits link: https://gilberttanner.com/2019/02/02/tensorflow-object-detection-tutorial-3-creating-your-own-object-detector/
+#credits link: https://gilberttanner.com/
 
 from PIL import Image
 import os
