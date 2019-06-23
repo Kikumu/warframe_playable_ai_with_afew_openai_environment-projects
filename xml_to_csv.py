@@ -1,4 +1,3 @@
-#credits_link: https://gilberttanner.com/
 
 import os
 import glob
