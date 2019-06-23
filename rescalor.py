@@ -1,4 +1,4 @@
-#credits link: https://gilberttanner.com/
+
 
 from PIL import Image
 import os
